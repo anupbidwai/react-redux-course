@@ -1,13 +1,22 @@
 import './App.css';
-import CodeSpliting from './code-spliting';
-import ContextExample from './context';
+import { ThemeContext, themes } from './context/theme_context';
+import { useState } from 'react';
+import { Button } from './components/Elements';
 
 function App() {
+  const [theme, setTheme] = useState(themes.light);
+  const toggleTheme = () => {
+    setTheme((prevTheme) => {
+      return prevTheme === themes.light ? themes.dark : themes.light
+    });
+  };
   return (
-    <div className="App">
-      {/* <CodeSpliting /> */}
-      <ContextExample />
-    </div>
+    <ThemeContext.Provider value={theme}>
+      <div className="App" style={{ backgroundColor: theme.backgroundColor, color: theme.color }}>
+        <Button type="button" label="toggle button" onClick={toggleTheme}>toggle button</Button>
+        <h1>Heading 1</h1>
+      </div>
+    </ThemeContext.Provider>
   );
 }
 

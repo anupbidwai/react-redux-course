@@ -12,7 +12,7 @@ export const themes = {
 }
 
 export const ThemeContext = React.createContext(
-    themes.dark // default value
+    themes.light // default value
 );
 
 // The defaultValue argument is only used when a component does not have a matching PROVIDER above it in the tree.
