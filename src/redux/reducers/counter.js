@@ -9,7 +9,7 @@ export function CounterReducer(state = initialState, action) {
         case INCREMENT_COUNTER:
             return {
                 ...state,
-                value: ++state.value
+                value: state.value + action.payload
             }
         case DECREMENT_COUNTER:
             return {

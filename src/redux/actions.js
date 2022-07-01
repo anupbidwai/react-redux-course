@@ -1,8 +1,9 @@
 import { INCREMENT_COUNTER, DECREMENT_COUNTER } from './actionTypes';
 
-export function increment_counter() {
+export function increment_counter(incrementBy) {
     return {
-        type: INCREMENT_COUNTER
+        type: INCREMENT_COUNTER,
+        payload: incrementBy
     }
 };
 
