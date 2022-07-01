@@ -1,13 +1,13 @@
 import { connect } from "react-redux";
-import { DECREMENT_COUNTER, INCREMENT_COUNTER } from '../redux/actionTypes';
+import { increment_counter, decrement_counter } from '../redux/actions';
 
 function Counter(props) {
     return (
         <>
             <span>{props.value}</span>
             <br />
-            <button onClick={props.increment}>increment</button>
-            <button onClick={props.decrement}>decrement</button>
+            <button onClick={props.increment_counter}>increment</button>
+            <button onClick={props.decrement_counter}>decrement</button>
         </>
     )
 }
@@ -17,11 +17,4 @@ function mapStateToProps(state) {
     return { value: CounterReducer.value }
 }
 
-function mapDispatchToProps(dispatch) {
-    return {
-        increment: () => dispatch({ type: INCREMENT_COUNTER }),
-        decrement: () => dispatch({ type: DECREMENT_COUNTER })
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Counter);
+export default connect(mapStateToProps, { increment_counter, decrement_counter })(Counter);

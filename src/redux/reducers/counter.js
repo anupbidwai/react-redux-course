@@ -14,7 +14,7 @@ export function CounterReducer(state = initialState, action) {
         case DECREMENT_COUNTER:
             return {
                 ...state,
-                value: --state.value
+                value: state.value > 0 ? --state.value : 0
             }
         default: return state;
     }
