@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const headingSlice = createSlice({
     name: 'heading',
     initialState: {
-        value: 'this is a redux toolkit'
+        value: 'this is a redux toolkit !!!'
     }
 });
 
