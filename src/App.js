@@ -1,7 +1,7 @@
-import Counter from "./components/Counter";
+import ReduxApp from "./components/ReduxApp";
 
 function App() {
-  return <Counter />
+  return <ReduxApp />
 }
 
 export default App;
