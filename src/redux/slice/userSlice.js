@@ -17,6 +17,23 @@ const userSlice = createSlice({
         error: null
     },
     reducers: {},
+    extraReducers: (builder) => {
+        builder.addCase(fetchUsers.pending, (state) => {
+            state.loading = true;
+            state.error = null;
+        });
+        builder.addCase(fetchUsers.fulfilled, (state, action) => {
+            state.loading = false;
+            state.error = null;
+            state.users = action.payload;
+        });
+        builder.addCase(fetchUsers.rejected, (state, action) => {
+            state.loading = false;
+            state.error = action.error
+        })
+    }
+    // another way
+    /*
     extraReducers: {
         [fetchUsers.pending]: (state) => {
             state.loading = true;
@@ -31,6 +48,7 @@ const userSlice = createSlice({
             state.loading = false
         }
     }
+    }*/
 });
 
 export default userSlice.reducer;
