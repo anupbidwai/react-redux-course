@@ -1,10 +1,10 @@
 import { useSelector, useDispatch } from "react-redux";
 import { increment, decrement } from "../redux/slice/counterSlice";
-import { fetchUsers } from "../redux/slice/recordSlice";
+import { fetchUsers } from "../redux/slice/empSlice";
 
 const ReduxApp = () => {
     const dispatch = useDispatch();
-    const recordState = useSelector(state => state.record);
+    const empState = useSelector(state => state.emp);
     const counterState = useSelector(state => state.counter);
 
     return (
@@ -15,20 +15,20 @@ const ReduxApp = () => {
             <button onClick={() => dispatch(decrement())}>decrement</button>
             <button onClick={() => dispatch(fetchUsers())}>fetch users</button>
             {
-                recordState.loading === true ? <p>loading...</p> : null
+                empState.loading === true ? <p>loading...</p> : null
             }
             {
-                recordState.users?.length > 0 &&
+                empState.users?.length > 0 &&
                 <ul>
                     {
-                        recordState.users.map(u => (
+                        empState.users.map(u => (
                             <li key={u.id}>{u.name}</li>
                         ))
                     }
                 </ul>
             }
             {
-                recordState.error ? <p>{recordState.error.message}</p> : null
+                empState.error ? <p>{empState.error.message}</p> : null
             }
         </>
     )
