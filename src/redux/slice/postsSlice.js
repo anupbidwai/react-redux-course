@@ -31,6 +31,23 @@ const postSlice = createSlice({
             state.error = action.error;
         });
     }
+    // another way
+    /*
+    extraReducers: {
+        [fetchUsers.pending]: (state) => {
+            state.loading = true;
+            state.error = null
+        },
+        [fetchUsers.fulfilled]: (state, action) => {
+            state.loading = false;
+            state.users = action.payload
+        },
+        [fetchUsers.rejected]: (state, action) => {
+            state.error = action.error;
+            state.loading = false
+        }
+    }
+    }*/
 });
 
 export default postSlice.reducer;
