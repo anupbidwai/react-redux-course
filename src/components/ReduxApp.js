@@ -20,7 +20,8 @@ const ReduxApp = () => {
         setPostId(postId);
     };
 
-    const handleFetchPost = () => {
+    const handleFetchPost = (event) => {
+        event.preventDefault();
         dispatch(fetchPosts(postId));
     };
 
@@ -34,13 +35,15 @@ const ReduxApp = () => {
             {/* posts API */}
             <fieldset>
                 <legend>posts</legend>
-                <input
-                    type="text"
-                    placeholder="type post id"
-                    value={postId}
-                    onChange={handlePostIDInput}
-                />
-                <button onClick={handleFetchPost}>fetch post</button>
+                <form>
+                    <input
+                        type="text"
+                        placeholder="type post id"
+                        value={postId}
+                        onChange={handlePostIDInput}
+                    />
+                    <button type="submit" onClick={handleFetchPost}>fetch post</button>
+                </form>
                 {
                     postsState.loading === true && <Status loading={postsState.loading} />
                 }
