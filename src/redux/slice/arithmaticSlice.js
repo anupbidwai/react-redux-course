@@ -10,7 +10,7 @@ const arithmaticSlice = createSlice({
     reducers: {
         add: (state, action) => {
             //console.log(action)
-            state.addResult = action.payload.a + action.payload.b
+            state.addResult += action.payload.a + action.payload.b
         }
     }
 });
