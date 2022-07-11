@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { add } from "../redux/slice/arithmaticSlice";
-import { fetchPosts } from "../redux/slice/postsSlice";
+import { fetchPosts, greetMe } from "../redux/slice/postsSlice";
 
 const Status = (props) => {
     const status = props.loading === true ? 'loading...' : (props.errorMessage ? props.errorMessage : null)
@@ -59,6 +59,8 @@ const ReduxApp = () => {
                 {
                     postsState.error !== null && <Status errorMessage={postsState.error.message} />
                 }
+                <button onClick={() => dispatch(greetMe('good afternoon, Anup'))}>show greeting</button>
+                {postsState.greetingMsg ? <p>{postsState.greetingMsg}</p> : null}
             </fieldset>
         </>
     )

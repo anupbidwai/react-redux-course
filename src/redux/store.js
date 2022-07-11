@@ -27,16 +27,13 @@ const rootReducer = combineReducers({
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = configureStore({
-    reducer: persistedReducer,
-    middleware: (getDefaultMiddleware) =>
-        getDefaultMiddleware({
-            serializableCheck: {
-                ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-            },
-        }),
+    reducer: {
+        arithmatic: arithmaticReducer,
+        posts: postsReducer
+    },
 });
 
-export let persistor = persistStore(store);
+//export let persistor = persistStore(store);
 
 /* without persist */
 /* 

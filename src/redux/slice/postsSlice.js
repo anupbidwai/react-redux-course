@@ -4,22 +4,26 @@ import { postsAPI } from '../../api/post/postsAPI';
 const initialState = {
     loading: false,
     error: null,
-    records: null
+    records: null,
+    greetingMsg: null
 };
 
 export const fetchPosts = createAsyncThunk("posts/fetchPosts", async (postId) => {
     let response, data;
     response = await postsAPI.fetchById(postId);
     if (response.status >= 200 && response.status < 300) {
-        data = await response.json();
+        return data = await response.json();
     }
-    return data;
 })
 
 const postSlice = createSlice({
     name: 'posts',
     initialState: { ...initialState },
-    reducers: {},
+    reducers: {
+        greetMe: (state, action) => {
+            state.greetingMsg = action.payload
+        }
+    },
     extraReducers: (builder) => {
         builder.addCase(fetchPosts.pending, state => {
             state.loading = true;
@@ -52,6 +56,7 @@ const postSlice = createSlice({
     }*/
 });
 
+export const { greetMe } = postSlice.actions;
 export default postSlice.reducer;
 
 
