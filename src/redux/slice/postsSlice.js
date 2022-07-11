@@ -7,10 +7,12 @@ const initialState = {
     records: null
 };
 
-export const fetchPosts = createAsyncThunk("post/fetchPosts", async (postId) => {
+export const fetchPosts = createAsyncThunk("posts/fetchPosts", async (postId) => {
     let response, data;
     response = await postsAPI.fetchById(postId);
-    data = await response.json();
+    if (response.status >= 200 && response.status < 300) {
+        data = await response.json();
+    }
     return data;
 })
 

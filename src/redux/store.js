@@ -22,7 +22,7 @@ const persistConfig = {
 const rootReducer = combineReducers({
     arithmatic: arithmaticReducer,
     posts: postsReducer
-})
+});
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
