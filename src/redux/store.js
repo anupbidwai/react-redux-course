@@ -1,3 +1,17 @@
+// without persist store
+/* import { configureStore } from '@reduxjs/toolkit';
+import postsReducer from './slice/postsSlice';
+import arithmaticReducer from './slice/arithmaticSlice';
+
+export const store = configureStore({
+    reducer: {
+        arithmatic: arithmaticReducer,
+        posts: postsReducer
+    },
+});
+ */
+
+// with persist store
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import postsReducer from './slice/postsSlice';
 import arithmaticReducer from './slice/arithmaticSlice';
@@ -27,22 +41,15 @@ const rootReducer = combineReducers({
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = configureStore({
-    reducer: {
-        arithmatic: arithmaticReducer,
-        posts: postsReducer
-    },
+    reducer: persistedReducer,
+    middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware({
+            serializableCheck: {
+                ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+            },
+        }),
 });
 
-//export let persistor = persistStore(store);
-
-/* without persist */
-/* 
-export const store = configureStore({
-    reducer: {
-        arithmatic: arithmaticReducer,
-        posts: postsReducer
-    },
-});
- */
+export let persistor = persistStore(store);
 
 
