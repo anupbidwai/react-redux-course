@@ -31,6 +31,12 @@ const persistConfig = {
     key: 'root',
     version: 1,
     storage,
+
+    // blacklisted reducers are not persisted
+    //blacklist: ['posts'],// here `post` is the object key from rootReducer
+
+    // only whitelited reducers are persisted
+    whitelist: ['arithmatic']// here `post` is the object key from rootReducer
 };
 
 const rootReducer = combineReducers({
