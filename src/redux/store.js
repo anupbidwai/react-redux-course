@@ -27,22 +27,25 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
+const rootReducer = combineReducers({
+    arithmatic: arithmaticReducer,
+    posts: postsReducer
+});
+
+
 const persistConfig = {
     key: 'root',
     version: 1,
     storage,
 
     // blacklisted reducers are not persisted
-    //blacklist: ['posts'],// here `post` is the key from rootReducer
+    blacklist: ['posts', "arithmatic"],// here `post` is the key from rootReducer
 
     // only whitelited reducers are persisted
-    whitelist: ['arithmatic']// here `post` is the key from rootReducer
-};
+    //whitelist: ['arithmatic']// here `post` is the key from rootReducer
 
-const rootReducer = combineReducers({
-    arithmatic: arithmaticReducer,
-    posts: postsReducer
-});
+    // if no blacklisted and whitelisted then all the reducers(rootReducer) are persited by default
+};
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
