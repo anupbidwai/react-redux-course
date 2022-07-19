@@ -9,10 +9,10 @@ const initialState = {
 };
 
 export const fetchPosts = createAsyncThunk("posts/fetchPosts", async (postId) => {
-    let response, data;
+    let response;
     response = await postsAPI.fetchById(postId);
     if (response.status >= 200 && response.status < 300) {
-        return data = await response.json();
+        return await response.json();
     }
 })
 
