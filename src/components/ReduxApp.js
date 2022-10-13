@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { add } from "../redux/slice/arithmaticSlice";
 import { fetchPosts, greetMe } from "../redux/slice/postsSlice";
@@ -9,10 +9,13 @@ const Status = (props) => {
 };
 
 const ReduxApp = () => {
+
+    const [records, setRecords] = useState();
+    const [postId, setPostId] = useState("");
+
     const dispatch = useDispatch();
     const postsState = useSelector(state => state.posts);
     const arithmaticState = useSelector(state => state.arithmatic);
-    const [postId, setPostId] = useState("");
 
     const handlePostIDInput = (event) => {
         const target = event.target;
@@ -24,6 +27,11 @@ const ReduxApp = () => {
         event.preventDefault();
         dispatch(fetchPosts(postId));
     };
+
+    useEffect(() => {
+        setRecords(postsState.records);
+    }, [postsState.records])
+
 
     return (
         <>
@@ -48,8 +56,8 @@ const ReduxApp = () => {
                     postsState.loading === true && <Status loading={postsState.loading} />
                 }
                 {
-                    postsState.records?.length > 0 &&
-                    postsState.records.map(post => (
+                    records?.length > 0 &&
+                    records.map(post => (
                         <React.Fragment key={post.id}>
                             <p>Post id: {post.id}</p>
                             <p>Post body: {post.body}</p>
@@ -58,6 +66,9 @@ const ReduxApp = () => {
                 }
                 {
                     postsState.error !== null && <Status errorMessage={postsState.error.message} />
+                }
+                {
+                    records?.length === 0 && <Status errorMessage="record does not exist" />
                 }
                 <button onClick={() => dispatch(greetMe('good afternoon, Anup'))}>show greeting</button>
                 {postsState.greetingMsg ? <p>{postsState.greetingMsg}</p> : null}
