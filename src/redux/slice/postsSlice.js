@@ -30,7 +30,7 @@ const postSlice = createSlice({
         });
         builder.addCase(fetchPosts.fulfilled, (state, action) => {
             state.loading = false;
-            state.records = action.payload;
+            state.records = action.payload
         });
         builder.addCase(fetchPosts.rejected, (state, action) => {
             state.loading = false;
