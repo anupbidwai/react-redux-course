@@ -21,6 +21,7 @@ const postSlice = createSlice({
     initialState: { ...initialState },
     reducers: {
         greetMe: (state, action) => {
+            console.log(action, state)
             state.greetingMsg = action.payload
         }
     },
@@ -55,8 +56,7 @@ const postSlice = createSlice({
     }
     }*/
 });
-
-export const { greetMe } = postSlice.actions;
+console.log(postSlice.actions)
+export const postActions = postSlice.actions;
 export default postSlice.reducer;
-
 

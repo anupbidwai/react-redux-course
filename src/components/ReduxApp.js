@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { add } from "../redux/slice/arithmaticSlice";
-import { fetchPosts, greetMe } from "../redux/slice/postsSlice";
+import { fetchPosts, postActions } from "../redux/slice/postsSlice";
 
 const Status = (props) => {
     const status = props.loading === true ? 'loading...' : (props.errorMessage ? props.errorMessage : null)
@@ -70,7 +70,7 @@ const ReduxApp = () => {
                 {
                     records?.length === 0 && <Status errorMessage="record does not exist" />
                 }
-                <button onClick={() => dispatch(greetMe('good afternoon, Anup'))}>show greeting</button>
+                <button onClick={() => dispatch(postActions.greetMe(new Date().getHours() >= 12 ? 'Good afternoon' : 'Good moring'))}>show greeting</button>
                 {postsState.greetingMsg ? <p>{postsState.greetingMsg}</p> : null}
             </fieldset>
         </>
