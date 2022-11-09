@@ -56,7 +56,6 @@ const postSlice = createSlice({
     }
     }*/
 });
-console.log(postSlice.actions)
 export const postActions = postSlice.actions;
 export default postSlice.reducer;
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { add } from "../redux/slice/arithmaticSlice";
 import { fetchPosts, postActions } from "../redux/slice/postsSlice";
@@ -11,20 +11,17 @@ const Status = (props) => {
 const ReduxApp = () => {
 
     const [records, setRecords] = useState();
-    const [postId, setPostId] = useState("");
+
+    const inputRef = useRef();
 
     const dispatch = useDispatch();
+
     const postsState = useSelector(state => state.posts);
     const arithmaticState = useSelector(state => state.arithmatic);
 
-    const handlePostIDInput = (event) => {
-        const target = event.target;
-        const postId = target.value;
-        setPostId(postId);
-    };
-
     const handleFetchPost = (event) => {
         event.preventDefault();
+        const postId = inputRef.current.value;
         dispatch(fetchPosts(postId));
     };
 
@@ -32,6 +29,7 @@ const ReduxApp = () => {
         setRecords(postsState.records);
     }, [postsState.records])
 
+    useEffect(() => console.log('mounted'))
 
     return (
         <>
@@ -47,8 +45,7 @@ const ReduxApp = () => {
                     <input
                         type="text"
                         placeholder="type post id"
-                        value={postId}
-                        onChange={handlePostIDInput}
+                        ref={inputRef}
                     />
                     <button type="submit" onClick={handleFetchPost}>fetch post</button>
                 </form>
