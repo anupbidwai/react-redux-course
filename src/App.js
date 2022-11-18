@@ -1,7 +1,6 @@
-import ReduxApp from "./components/ReduxApp";
-
+import Todo from "./Todo/index";
 function App() {
-  return <ReduxApp />
+  return <Todo />;
 }
 
 export default App;

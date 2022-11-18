@@ -9,15 +9,11 @@ const Status = (props) => {
 };
 
 const ReduxApp = () => {
-
     const [records, setRecords] = useState();
-
     const inputRef = useRef();
-
-    const dispatch = useDispatch();
-
     const postsState = useSelector(state => state.posts);
     const arithmaticState = useSelector(state => state.arithmatic);
+    const dispatch = useDispatch();
 
     const handleFetchPost = (event) => {
         event.preventDefault();
