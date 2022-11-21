@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { ThemeContext } from "../context/theme_context";
 
 export function Button(props) {

@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 
 let id = 1;
 
+// todo item style
 const listContainerStyle = {
   maxWidth: 200,
   padding: 0,
@@ -38,8 +39,9 @@ const Todo = () => {
   // on form submit
   const onSubmitTodo = (event) => {
     event.preventDefault();
+    if (!inputRef.current.value) return;
     let todo = {
-      id: id,
+      id: id++,
       title: inputRef.current.value,
       isDone: false,
     };
@@ -49,17 +51,45 @@ const Todo = () => {
     });
 
     inputRef.current.value = "";
+    inputRef.current.focus();
   };
 
-  // effect if list has changed
-  useEffect(() => {
-    inputRef.current.focus();
-    if (list[list.length - 1] !== undefined) {
-      id = list[list.length - 1].id + 1;
+  // get data from storage
+  const getStorageDtata = () => {
+    let prevList = JSON.parse(localStorage.getItem('todo_list'));
+    if (prevList?.length > 0) {
+      setList([...prevList]);
+      id = prevList[prevList.length - 1].id;
+      ++id;
+    } else {
+      throw "List is empty";
     }
-    console.log("from list", list);
+  }
+
+  // effect fpor mounting phase
+  useEffect(() => {
+    try {
+      getStorageDtata();
+    }
+    catch (e) {
+      console.error(e)
+    }
+    return () => {
+      localStorage.removeItem('todo_list');
+    }
+  }, []);
+
+  // effect for updateing phase with dependancy
+  useEffect(() => {
+    if (list?.length > 0) {
+      localStorage.setItem('todo_list', JSON.stringify([...list]));
+    }
+    return () => {
+      localStorage.removeItem('todo_list');
+    }
   }, [list]);
 
+  // todo item
   const TodoList = list.map((item) => (
     <TodoItem
       key={item.id}
