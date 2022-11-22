@@ -106,18 +106,23 @@ const Todo = () => {
       <form onSubmit={onSubmitTodo}>
         <ThemeTextField ref={inputRef} type="text" placeholder="enter todo" />
         <ThemeButton type="submit">Add</ThemeButton>
-        {todoList?.length > 0 && <ul style={listContainerStyle}>{
-          todoList.map((item) => (
-            <TodoItem
-              key={item.id}
-              isDone={item.isDone}
-              onChangeBox={(event) => onChangeBox(event, item.id)}
-              handleDel={(event) => handleDel(event, item.id)}
-            >
-              {item.title}
-            </ TodoItem>
-          ))
-        }</ul>}
+        {
+          todoList?.length > 0
+          && <ul style={listContainerStyle}>
+            {
+              todoList.map((item) => (
+                <TodoItem
+                  key={item.id}
+                  isDone={item.isDone}
+                  onChangeBox={(event) => onChangeBox(event, item.id)}
+                  handleDel={(event) => handleDel(event, item.id)}
+                >
+                  {item.title}
+                </ TodoItem>
+              ))
+            }
+          </ul>
+        }
       </form>
     </>
   );

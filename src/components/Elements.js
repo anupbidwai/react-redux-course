@@ -35,22 +35,20 @@ export const TodoItem = (props) => {
     padding: 6,
   };
   return (
-    <>
-      <li style={style}>
-        <input
-          type="checkbox"
-          onChange={props.onChangeBox}
-          checked={props.isDone}
-        />
-        {children}
-        <ThemeButton
-          onClick={props.handleDel}
-          type="buttton"
-          style={{ fontSize: 10 }}
-        >
-          X
-        </ThemeButton>
-      </li>
-    </>
+    <li style={style}>
+      <input
+        type="checkbox"
+        onChange={props.onChangeBox}
+        checked={props.isDone}
+      />
+      {children}
+      <ThemeButton
+        onClick={props.handleDel}
+        type="buttton"
+        style={{ fontSize: 10 }}
+      >
+        X
+      </ThemeButton>
+    </li>
   );
 };
