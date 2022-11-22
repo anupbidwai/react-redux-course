@@ -26,7 +26,7 @@ const Todo = () => {
     setList(listCopy);
   };
 
-  // handle done state
+  // handle done
   const onChangeBox = (event, completedItemId) => {
     let completedItemIndex,
       listCopy = [...list];
@@ -60,7 +60,7 @@ const Todo = () => {
     if (prevList?.length > 0) {
       setList([...prevList]);
       id = prevList[prevList.length - 1].id;
-      ++id;
+      id++;
     } else {
       throw "TODO list is empty, kindly add an item into it";
     }
