@@ -83,7 +83,10 @@ const Todo = () => {
 
   // effect for updating phase with dependancy
   useEffect(() => {
-    if (list?.length >= 0) {
+    if (list?.length === 0) {
+      localStorage.removeItem('todo_list');
+    }
+    if (list?.length > 0) {
       localStorage.setItem('todo_list', JSON.stringify([...list]));
     }
   }, [list]);
