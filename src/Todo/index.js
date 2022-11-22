@@ -97,7 +97,12 @@ const Todo = () => {
 
   return (
     <>
-      <ThemeTextField type="text" placeholder="Search todo item" value={query} onChange={(e) => setQuery(e.target.value)} />
+      <ThemeTextField
+        type="text"
+        placeholder="Search todo item"
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+      />
       <form onSubmit={onSubmitTodo}>
         <ThemeTextField ref={inputRef} type="text" placeholder="enter todo" />
         <ThemeButton type="submit">Add</ThemeButton>
