@@ -1,5 +1,5 @@
 import { ThemeButton, ThemeTextField, TodoItem } from "../components/Elements";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useMemo } from "react";
 
 let id = 1;
 
@@ -13,7 +13,9 @@ const listContainerStyle = {
 
 const Todo = () => {
   const inputRef = useRef();
+
   const [list, setList] = useState([]);
+  const [query, setQuery] = useState("");
 
   // handle delete
   const handleDel = (event, removeItemId) => {
@@ -86,24 +88,31 @@ const Todo = () => {
     }
   }, [list]);
 
-  // todo item
-  const TodoList = list.map((item) => (
-    <TodoItem
-      key={item.id}
-      isDone={item.isDone}
-      onChangeBox={(event) => onChangeBox(event, item.id)}
-      handleDel={(event) => handleDel(event, item.id)}
-    >
-      {item.title}
-    </TodoItem>
-  ));
+  // filter list
+  const todoList = useMemo(() => {
+    return list.filter((item) => (
+      item.title.toLowerCase().includes(query.toLocaleLowerCase())
+    ))
+  }, [list, query]);
 
   return (
     <>
+      <ThemeTextField type="text" placeholder="Search todo item" value={query} onChange={(e) => setQuery(e.target.value)} />
       <form onSubmit={onSubmitTodo}>
         <ThemeTextField ref={inputRef} type="text" placeholder="enter todo" />
         <ThemeButton type="submit">Add</ThemeButton>
-        {TodoList?.length > 0 && <ul style={listContainerStyle}>{TodoList}</ul>}
+        {todoList?.length > 0 && <ul style={listContainerStyle}>{
+          todoList.map((item) => (
+            <TodoItem
+              key={item.id}
+              isDone={item.isDone}
+              onChangeBox={(event) => onChangeBox(event, item.id)}
+              handleDel={(event) => handleDel(event, item.id)}
+            >
+              {item.title}
+            </ TodoItem>
+          ))
+        }</ul>}
       </form>
     </>
   );
