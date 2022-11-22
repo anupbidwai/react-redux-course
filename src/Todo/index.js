@@ -62,7 +62,7 @@ const Todo = () => {
       id = prevList[prevList.length - 1].id;
       ++id;
     } else {
-      throw "List is empty";
+      throw "TODO list is empty, kindly add an item into it";
     }
   }
 
@@ -72,16 +72,16 @@ const Todo = () => {
       getStorageDtata();
     }
     catch (e) {
-      console.error(e)
+      console.warn(e)
     }
     return () => {
       localStorage.clear();
-    }
+    };
   }, []);
 
   // effect for updating phase with dependancy
   useEffect(() => {
-    if (list?.length > 0) {
+    if (list?.length >= 0) {
       localStorage.setItem('todo_list', JSON.stringify([...list]));
     }
   }, [list]);
