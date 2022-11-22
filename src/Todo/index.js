@@ -66,7 +66,7 @@ const Todo = () => {
     }
   }
 
-  // effect fpor mounting phase
+  // effect for mounting phase
   useEffect(() => {
     try {
       getStorageDtata();
@@ -75,17 +75,14 @@ const Todo = () => {
       console.error(e)
     }
     return () => {
-      localStorage.removeItem('todo_list');
+      localStorage.clear();
     }
   }, []);
 
-  // effect for updateing phase with dependancy
+  // effect for updating phase with dependancy
   useEffect(() => {
     if (list?.length > 0) {
       localStorage.setItem('todo_list', JSON.stringify([...list]));
-    }
-    return () => {
-      localStorage.removeItem('todo_list');
     }
   }, [list]);
 
