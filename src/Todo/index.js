@@ -92,6 +92,8 @@ const Todo = () => {
   useEffect(() => {
     if (list?.length === 0) {
       localStorage.removeItem('todo_list');
+      // id reset
+      id = 1;
     }
     if (list?.length > 0) {
       localStorage.setItem('todo_list', JSON.stringify([...list]));
