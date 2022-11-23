@@ -13,8 +13,8 @@ export const store = configureStore({
 
 // with persist store
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import postsReducer from './slice/postsSlice';
 import arithmaticReducer from './slice/arithmaticSlice';
+import postsReducer from './slice/postsSlice';
 import {
     persistStore,
     persistReducer,
@@ -39,7 +39,7 @@ const persistConfig = {
     storage,
 
     // blacklisted reducers are not persisted
-    blacklist: ["posts", "arithmatic"],// here `post` and  `arithmatic` is the key from rootReducer
+    blacklist: ["arithmatic", "posts"],// here `post` and  `arithmatic` is the key from rootReducer
 
     // only whitelisted reducers are persisted
     //whitelist: ['arithmatic']// here `arithmatic` is the key from rootReducer
