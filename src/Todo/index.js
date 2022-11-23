@@ -66,7 +66,14 @@ const Todo = () => {
     } else {
       throw "TODO list is empty, kindly add an item into it";
     }
-  }
+  };
+
+  // filtered list
+  const todoList = useMemo(() => {
+    return list.filter((item) => (
+      item.title.toLowerCase().includes(query.toLocaleLowerCase())
+    ))
+  }, [list, query]);
 
   // effect for mounting phase
   useEffect(() => {
@@ -90,13 +97,6 @@ const Todo = () => {
       localStorage.setItem('todo_list', JSON.stringify([...list]));
     }
   }, [list]);
-
-  // filter list
-  const todoList = useMemo(() => {
-    return list.filter((item) => (
-      item.title.toLowerCase().includes(query.toLocaleLowerCase())
-    ))
-  }, [list, query]);
 
   return (
     <>
