@@ -29,7 +29,7 @@ const Todo = () => {
   };
 
   // handle done
-  const onChangeBox = (event, completedItemId) => {
+  const onChangeBox = (completedItemId) => {
     let completedItemIndex,
       listCopy = [...list];
 
@@ -119,7 +119,7 @@ const Todo = () => {
                 <TodoItem
                   key={item.id}
                   isDone={item.isDone}
-                  onChangeBox={(event) => onChangeBox(event, item.id)}
+                  onChangeBox={() => onChangeBox(item.id)}
                   handleDel={(event) => handleDel(event, item.id)}
                 >
                   {item.title}

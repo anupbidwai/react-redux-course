@@ -1,4 +1,4 @@
-import Todo from "./Todo/index";
+import Todo from "./Todo/withStore";
 function App() {
   return <Todo />;
 }
