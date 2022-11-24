@@ -1,5 +1,5 @@
 import { ThemeButton, ThemeTextField, TodoItem } from "../components/Elements";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import { todoActions } from "../redux/slice/todoSlice";
 
@@ -14,6 +14,7 @@ const listContainerStyle = {
 };
 
 const Todo = () => {
+  const [query, setQuery] = useState("");
   const inputRef = useRef();
   const dispatch = useDispatch();
   const todo = useSelector(state => state.todo);
@@ -27,9 +28,7 @@ const Todo = () => {
       title: inputRef.current.value,
       isDone: false,
     };
-
     dispatch(todoActions.add(item));
-
     inputRef.current.value = "";
     inputRef.current.focus();
   };
@@ -39,8 +38,28 @@ const Todo = () => {
     dispatch(todoActions.update(todoId));
   };
 
+  // handle delete
+  const handleDel = (todoId) => {
+    dispatch(todoActions.deleteTodo(todoId))
+  };
+
+  // handle search query
+  const handleChange = (e) => {
+    setQuery(e.target.value);
+  };
+
+  useEffect(() => {
+    dispatch(todoActions.search(query));
+  }, [query])
+
   return (
     <>
+      <ThemeTextField
+        type="text"
+        placeholder="search item"
+        value={query}
+        onChange={handleChange}
+      />
       <form onSubmit={onSubmitTodo}>
         <ThemeTextField ref={inputRef} type="text" placeholder="enter todo" />
         <ThemeButton type="submit">Add</ThemeButton>
@@ -54,6 +73,7 @@ const Todo = () => {
                 key={item.id}
                 isDone={item.isDone}
                 onChangeBox={() => onChangeBox(item.id)}
+                handleDel={() => handleDel(item.id)}
               >
                 {item.title}
               </TodoItem>

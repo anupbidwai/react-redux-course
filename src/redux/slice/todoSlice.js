@@ -15,12 +15,23 @@ const updateTodo = (state, action) => {
     }
 };
 
+const search = (state, action) => {
+
+}
+const deleteTodo = (state, action) => {
+    state.list = state.list.filter(item => item.id !== action.payload);
+    // const index = state.list.findIndex(item => item.id === action.payload);
+    // state.list.splice(index, 1);
+};
+
 const todoSlice = createSlice({
     name: 'todo',
     initialState: initialState,
     reducers: {
         add: addTodo,
-        update: updateTodo
+        update: updateTodo,
+        deleteTodo: deleteTodo,
+        search: search
     }
 });
 
