@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, original } from "@reduxjs/toolkit";
 
 const initialState = {
     list: []
@@ -15,9 +15,6 @@ const updateTodo = (state, action) => {
     }
 };
 
-const search = (state, action) => {
-
-};
 
 const deleteTodo = (state, action) => {
     state.list = state.list.filter(item => item.id !== action.payload);
@@ -31,8 +28,7 @@ const todoSlice = createSlice({
     reducers: {
         add: addTodo,
         update: updateTodo,
-        deleteTodo: deleteTodo,
-        search: search
+        deleteTodo: deleteTodo
     }
 });
 

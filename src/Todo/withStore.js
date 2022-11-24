@@ -48,9 +48,7 @@ const Todo = () => {
     setQuery(e.target.value);
   };
 
-  useEffect(() => {
-    dispatch(todoActions.search(query));
-  }, [query])
+  let todoList = todo.list.filter(item => item.title.includes(query));
 
   return (
     <>
@@ -65,10 +63,10 @@ const Todo = () => {
         <ThemeButton type="submit">Add</ThemeButton>
       </form>
       {
-        todo.list?.length > 0
+        todoList?.length > 0
         && <ul style={listContainerStyle}>
           {
-            todo?.list.map(item => (
+            todoList.map(item => (
               <TodoItem
                 key={item.id}
                 isDone={item.isDone}
