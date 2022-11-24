@@ -44,7 +44,7 @@ const Todo = () => {
   };
 
   // handle search query
-  const handleChange = (e) => {
+  const handleSearch = (e) => {
     setQuery(e.target.value);
   };
 
@@ -58,7 +58,7 @@ const Todo = () => {
         type="text"
         placeholder="search item"
         value={query}
-        onChange={handleChange}
+        onChange={handleSearch}
       />
       <form onSubmit={onSubmitTodo}>
         <ThemeTextField ref={inputRef} type="text" placeholder="enter todo" />

@@ -17,7 +17,8 @@ const updateTodo = (state, action) => {
 
 const search = (state, action) => {
 
-}
+};
+
 const deleteTodo = (state, action) => {
     state.list = state.list.filter(item => item.id !== action.payload);
     // const index = state.list.findIndex(item => item.id === action.payload);
