@@ -1,5 +1,5 @@
+import { useRef, useState } from "react";
 import { ThemeButton, ThemeTextField, TodoItem } from "../components/Elements";
-import { useEffect, useRef, useState } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import { todoActions } from "../redux/slice/todoSlice";
 
