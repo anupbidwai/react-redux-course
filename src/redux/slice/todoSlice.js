@@ -1,4 +1,4 @@
-import { createSlice, original } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     list: []
@@ -15,11 +15,10 @@ const updateTodo = (state, action) => {
     }
 };
 
-
 const deleteTodo = (state, action) => {
-    state.list = state.list.filter(item => item.id !== action.payload);
-    // const index = state.list.findIndex(item => item.id === action.payload);
-    // state.list.splice(index, 1);
+    //state.list = state.list.filter(item => item.id !== action.payload);
+    const index = state.list.findIndex(item => item.id === action.payload);
+    state.list.splice(index, 1);
 };
 
 const todoSlice = createSlice({
