@@ -2,13 +2,13 @@ import validator from 'validator';
 
 export const empty = (value) => {
     if (validator.isEmpty(value)) {
-        return 'Field is required';
+        return 'Should not be blank';
     }
 };
 
 export const email = (value) => {
     if (!validator.isEmail(value)) {
-        return 'Invalid email format';
+        return 'Invalid email pattern';
     }
 };
 

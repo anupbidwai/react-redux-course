@@ -8,14 +8,20 @@ const UserRegistration = (props) => {
         name: {
             value: "",
             rules: ["isEmpty"],
+            message: {}
         },
         email: {
             value: "",
             rules: ["isEmpty", "isEmail"],
+            message: {}
         },
         mobile: {
             value: "",
             rules: ["isEmpty", "min:10", "max:10"],
+            message: {
+                "min": "Minimum 10 digit require",
+                "max": "Maximun 10 digit allowed"
+            }
         },
     });
     const handleChange = (event) => {
