@@ -23,6 +23,16 @@ export const ThemeTextField = React.forwardRef((props, ref) => {
   return <input ref={ref} {...props} />;
 });
 
+export const ThemeTextField2 = (props) => {
+  const { error, ...other } = props;
+  return (
+    <div>
+      <input {...other} style={{ display: "block" }} />
+      {error && <span style={{ color: "red", fontSize: 12 }}>{error}</span>}
+    </div>
+  );
+};
+
 export const TodoItem = (props) => {
   const { children } = props;
 

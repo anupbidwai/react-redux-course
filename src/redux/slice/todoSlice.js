@@ -9,7 +9,8 @@ const addTodo = (state, action) => {
 };
 
 const updateTodo = (state, action) => {
-    const todo = state.list.find(item => item.id === action.payload);
+    const todoId = action.payload;
+    const todo = state.list.find(item => item.id === todoId);
     if (todo) {
         todo.isDone = !todo.isDone;
     }
@@ -17,7 +18,8 @@ const updateTodo = (state, action) => {
 
 const deleteTodo = (state, action) => {
     //state.list = state.list.filter(item => item.id !== action.payload);
-    const index = state.list.findIndex(item => item.id === action.payload);
+    const todoId = action.payload;
+    const index = state.list.findIndex(item => item.id === todoId);
     state.list.splice(index, 1);
 };
 
