@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { ThemeTextField2 } from "../components/Elements";
-import runValidation from "../utils/runValidation";
+import validation from "../utils/validation";
 
 const UserRegistration = (props) => {
     const [errors, setErrors] = useState();
@@ -26,7 +26,7 @@ const UserRegistration = (props) => {
     });
     const handleChange = (event) => {
         const { name, value } = event.target;
-        if (value) {
+        if (value !== null) {
             setForm({
                 ...form,
                 [name]: {
@@ -38,7 +38,7 @@ const UserRegistration = (props) => {
     };
     const handleSubmit = (event) => {
         event.preventDefault();
-        let formErrors = runValidation(form);
+        let formErrors = validation.run(form);
         setErrors(formErrors);
     };
     return (
