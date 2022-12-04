@@ -1,4 +1,4 @@
-import { email, empty, maxMinLen } from "./validator";
+import { checkEmail, checkEmpty, checkMaxMinLen } from "./validator";
 
 const runValidation = (formData) => {
     let formErrors = {};
@@ -9,10 +9,10 @@ const runValidation = (formData) => {
             let errorMessage = null;
             switch (rule) {
                 case "isEmpty":
-                    errorMessage = empty(value);
+                    errorMessage = checkEmpty(value);
                     break;
                 case "isEmail":
-                    errorMessage = email(value);
+                    errorMessage = checkEmail(value);
                     break;
                 default:
                     errorMessage = null;
@@ -20,7 +20,7 @@ const runValidation = (formData) => {
             if (rule.includes("min")) {
                 let minLength = rule.split(":")[1];
                 if (value?.length < minLength) {
-                    errorMessage = maxMinLen(value, minLength, undefined);
+                    errorMessage = checkMaxMinLen(value, minLength, undefined);
                     if (message.hasOwnProperty("min")) {
                         errorMessage = message.min;
                     }
@@ -29,7 +29,7 @@ const runValidation = (formData) => {
             if (rule.includes("max")) {
                 let maxLength = rule.split(":")[1];
                 if (value?.length > maxLength) {
-                    errorMessage = maxMinLen(value, undefined, maxLength);
+                    errorMessage = checkMaxMinLen(value, undefined, maxLength);
                     if (message.hasOwnProperty("max")) {
                         errorMessage = message.max;
                     }
