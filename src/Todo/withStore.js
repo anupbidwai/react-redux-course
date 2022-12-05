@@ -49,7 +49,7 @@ const Todo = () => {
   };
 
   useEffect(() => {
-    if (todo?.list) {
+    if (todo?.list?.length) {
       id = todo.list[todo.list.length - 1].id;
       ++id;
     }
