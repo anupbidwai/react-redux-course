@@ -41,10 +41,10 @@ const persistConfig = {
     storage,
 
     // blacklisted reducers are not persisted
-    blacklist: ["arithmatic", "posts", 'todo'],// here `blacklist` items are the keys from rootReducer
+    //blacklist: ["arithmatic", "posts", 'todo'],// here `blacklist` items are the keys from rootReducer
 
     // only whitelisted reducers are persisted
-    //whitelist: ['arithmatic']// here `whitelist` items are the keys from rootReducer
+    whitelist: ['todo']// here `whitelist` items are the keys from rootReducer
 
     // if no blacklisted and whitelisted then all the reducers(rootReducer) are persited by default
 };

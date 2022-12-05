@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ThemeButton, ThemeTextField, TodoItem } from "../components/Elements";
 import { useSelector, useDispatch } from 'react-redux';
 import { todoActions } from "../redux/slice/todoSlice";
@@ -47,6 +47,13 @@ const Todo = () => {
   const handleSearch = (e) => {
     setQuery(e.target.value);
   };
+
+  useEffect(() => {
+    if (todo?.list) {
+      id = todo.list[todo.list.length - 1].id;
+      ++id;
+    }
+  }, [])
 
   let todoList = todo.list.filter(item => item.title.includes(query));
 
