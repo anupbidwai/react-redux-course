@@ -18,7 +18,7 @@ const runValidation = (formData) => {
                     errorMessage = null;
             }
             if (rule.includes("min")) {
-                let minLength = rule.split(":")[1];
+                let minLength = parseInt(rule.split(":")[1]);
                 if (value?.length < minLength) {
                     errorMessage = validate.maxMinLen(value, minLength, undefined);
                     if (message.hasOwnProperty("min")) {
@@ -27,7 +27,7 @@ const runValidation = (formData) => {
                 }
             }
             if (rule.includes("max")) {
-                let maxLength = rule.split(":")[1];
+                let maxLength = parseInt(rule.split(":")[1]);
                 if (value?.length > maxLength) {
                     errorMessage = validate.maxMinLen(value, undefined, maxLength);
                     if (message.hasOwnProperty("max")) {
