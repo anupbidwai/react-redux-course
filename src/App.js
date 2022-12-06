@@ -1,7 +1,7 @@
-import UserRegistration from "./Form/UserRegistration";
-import Todo from "./Todo/withStore";
+import Todo from './components/Todo/withStore';
+
 function App() {
-  return <UserRegistration />
+  return <Todo />
 }
 
 export default App;

@@ -1,13 +1,14 @@
-import { useState, useEffect } from "react";
-import UseUserStatus from "../Hooks/CustomHooks";
+import { useState } from "react";
+import UseUserStatus from "../hooks/CustomHooks";
 
 const defaultUserData = {
-  department: "FBI",
+  department: "RAW",
+  DOJ: '15-08-1947'
 };
 
 const UserStatus = (props) => {
   const [user, setUser] = useState(defaultUserData);
-  const isLoggedIn = UseUserStatus(10);
+  const [isLoggedIn, userId] = UseUserStatus('tiger');
 
   const handleClick = () => {
     setUser((prevState) => {
@@ -18,17 +19,13 @@ const UserStatus = (props) => {
     });
   };
 
-  useEffect(() => {
-    console.log("mounted");
-  }, [isLoggedIn]);
-
   return (
     <>
       <h1>useState tutorial</h1>
       {Object.keys(user).map((key) => (
-        <p key={key}>{`${key}:${user[key]}`}</p>
+        <p key={key}>{`${key.toUpperCase()} => ${user[key]}`}</p>
       ))}
-      {isLoggedIn === true ? <h1>user logged in</h1> : <h1>user lgged off</h1>}
+      {isLoggedIn === true ? <h1>user with id #{userId} logged in</h1> : <h1>Unauthorized user</h1>}
       <button onClick={handleClick}>add age</button>
     </>
   );

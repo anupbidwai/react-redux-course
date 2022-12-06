@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
-import { ThemeButton, ThemeTextField, TodoItem } from "../components/Elements";
 import { useSelector, useDispatch } from 'react-redux';
-import { todoActions } from "../redux/slice/todoSlice";
+import { ThemeButton, ThemeTextField, TodoItem } from "../Elements";
+import { todoActions } from '../../redux/slice/todoSlice';
 
 let id = 1;
 
@@ -49,6 +49,7 @@ const Todo = () => {
   };
 
   useEffect(() => {
+    console.log(todo)
     if (todo?.list?.length) {
       id = todo.list[todo.list.length - 1].id;
       ++id;
