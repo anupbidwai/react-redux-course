@@ -1,7 +1,8 @@
-const url = "https://jsonplaceholder.typicode.com/posts";
+const POSTS_URL = "https://jsonplaceholder.typicode.com/posts";
+
 
 const fetchById = (id) => {
-    return fetch(`${url}?id=${id}`);
+    return fetch(`${POSTS_URL}?id=${id}`);
 };
 
 export const postsAPI = {

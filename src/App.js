@@ -1,9 +1,10 @@
-import GetResource from "./fetch/getting";
+import GettingThumbnail from "./fetch/getting";
+import ListingGallery from "./fetch/listing";
 
 import "./style.css";
 
 function App() {
-  return <GetResource />
+  return <GettingThumbnail />
 }
 
 export default App;
