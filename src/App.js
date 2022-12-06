@@ -1,7 +1,9 @@
-import Todo from './components/Todo/withStore';
+import GetResource from "./fetch/getting";
+
+import "./style.css";
 
 function App() {
-  return <Todo />
+  return <GetResource />
 }
 
 export default App;
