@@ -1,10 +1,15 @@
-import GettingThumbnail from "./fetch/getting";
+import Create from "./fetch/creating";
+import GettingPhoto from "./fetch/getting";
 import ListingGallery from "./fetch/listing";
 
 import "./style.css";
 
 function App() {
-  return <GettingThumbnail />
+  return (
+    <>
+      <Create />
+    </>
+  )
 }
 
 export default App;

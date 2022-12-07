@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Photo from "../components/Photo";
 
 const galleryStyle = {
     display: 'grid',
@@ -7,29 +8,12 @@ const galleryStyle = {
     padding: 24
 };
 
-const thumbnailStyle = {
-    margin: 0,
-    padding: 24,
-    boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
-    borderRadius: 10
-}
-
-const Thumbnail = (props) => {
-    const { thumbnail } = props;
-    return (
-        <figure style={thumbnailStyle}>
-            <h1>{thumbnail.title}</h1>
-            <img src={thumbnail.thumbnailUrl} alt={thumbnail.title} />
-            <figcaption>{thumbnail.id}</figcaption>
-        </figure>
-    )
-};
 const Gallery = (props) => {
     const [gallery, setGallery] = useState();
 
-    const printThumbnail = () => gallery.map(item => {
+    const printPhoto = () => gallery.map(item => {
         return item.albumId === 1
-            && <Thumbnail thumbnail={item} key={item.id} />
+            && <Photo photo={item} key={item.id} />
     });
 
     useEffect(() => {
@@ -38,7 +22,7 @@ const Gallery = (props) => {
 
     return (
         gallery?.length > 0
-            ? <div style={galleryStyle}>{printThumbnail()}</div>
+            ? <div style={galleryStyle}>{printPhoto()}</div>
             : "Loading ..."
     )
 };
@@ -52,7 +36,7 @@ const ListingGallery = () => {
             if (response.ok) {
                 return response.json();
             } else {
-                throw response.status;
+                throw new Error(response.status);
             }
         } catch (e) {
             console.error(e)
