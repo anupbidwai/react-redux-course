@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { GALLERY_URL } from "../api/gallery";
 import Photo from "../components/Photo";
 
 const galleryStyle = {
@@ -51,7 +52,7 @@ const ListingGallery = () => {
         const options = {
             method: 'GET'
         }
-        fetch("https://jsonplaceholder.typicode.com/photos", options)
+        fetch(GALLERY_URL, options)
             .then(status)
             .then(data)
             .catch(err => console.log(err))

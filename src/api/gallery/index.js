@@ -1,4 +1,8 @@
-const GALLERY_URL = "https://jsonplaceholder.typicode.com/photos";
+export const GALLERY_URL = "https://jsonplaceholder.typicode.com/photos";
+
+const fetchAll = () => {
+    return fetch(GALLERY_URL);
+};
 
 const fetchById = (id) => {
     return fetch(`${GALLERY_URL}/${id}`);
@@ -17,6 +21,7 @@ const createThumbnail = (item) => {
 };
 
 export const galleryAPI = {
+    fetchAll: fetchAll,
     fetchById: fetchById,
     createThumbnail: createThumbnail
 };

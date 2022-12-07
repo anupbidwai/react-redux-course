@@ -10,7 +10,7 @@ const Photo = (props) => {
     return (
         <figure style={photoStyle}>
             <h1>{photo.title}</h1>
-            <img src={photo.url} alt={photo.title} width="150" height="150" />
+            <img src={photo.thumbnailUrl} alt={photo.title} width="150" height="150" />
             <figcaption>{photo.id}</figcaption>
         </figure>
     )

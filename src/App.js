@@ -1,6 +1,6 @@
-import Create from "./fetch/creating";
-import GettingPhoto from "./fetch/getting";
 import ListingGallery from "./fetch/listing";
+import GettingPhoto from "./fetch/getting";
+import Create from "./fetch/creating";
 
 import "./style.css";
 
