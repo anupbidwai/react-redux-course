@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 import { galleryAPI } from "../api/gallery";
 import Photo from '../components/Photo';
 
-const GettingPhoto = () => {
+const GettingThumbnail = () => {
     const inputRef = useRef();
     const [result, setResult] = useState();
 
@@ -26,7 +26,8 @@ const GettingPhoto = () => {
 
     return (
         <>
-            <form onSubmit={handleSubmit}>
+            <h1 style={{ textAlign: 'center' }}>Fetching Thumbnail</h1>
+            <form onSubmit={handleSubmit} style={{ textAlign: 'center' }}>
                 <input type="text" placeholder="Type id" ref={inputRef} />
                 <button type="submit">fetch thumbnail</button>
             </form>
@@ -34,4 +35,4 @@ const GettingPhoto = () => {
         </>
     )
 };
-export default GettingPhoto;
+export default GettingThumbnail;

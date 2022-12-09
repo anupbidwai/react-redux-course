@@ -58,6 +58,11 @@ const ListingGallery = () => {
             .catch(err => console.log(err))
     }, []);
 
-    return <Gallery data={gallery} />
+    return (
+        <>
+            <h1 style={{ textAlign: 'center' }}>Listing Thumbnails</h1>
+            <Gallery data={gallery} />
+        </>
+    )
 };
 export default ListingGallery;

@@ -46,15 +46,17 @@ const Create = () => {
         <>
             {
                 alumbs ? (
-                    <form onSubmit={handleSubmit}>
-                        <select ref={alubmnIdRef}>
-                            <option>Select album</option>
-                            {alumbmIds}
-                        </select>
-                        <input type="text" placeholder="Thumbnail URL" ref={thumbnailUrlRef} />
-                        <input type="text" placeholder="Title" ref={titleRef} />
-                        <button type="sbumit">create</button>
-                    </form>
+                    <>
+                        <h1 style={{ textAlign: 'center' }}>Create Thumbnail</h1>
+                        <form onSubmit={handleSubmit} style={{ textAlign: 'center' }}>
+                            <select ref={alubmnIdRef}>
+                                <option>Select album</option>
+                                {alumbmIds}
+                            </select>
+                            <input type="text" placeholder="Thumbnail URL" ref={thumbnailUrlRef} />
+                            <input type="text" placeholder="Title" ref={titleRef} />
+                            <button type="sbumit">create</button>
+                        </form></>
                 ) : "Loading..."
             }
             {

@@ -1,5 +1,6 @@
 import ListingGallery from "./fetch/listing";
-import GettingPhoto from "./fetch/getting";
+import GettingThumbnail from "./fetch/getting";
+import UserRegistration from './form/UserRegistration';
 import Create from "./fetch/creating";
 
 import "./style.css";
