@@ -11,12 +11,14 @@ const UpdatingThumbnail = () => {
 
     const handleChange = (event) => {
         const { name, value } = event.target;
-        setItem(prevState => {
-            return {
-                ...prevState,
-                [name]: value
-            }
-        });
+        if (value !== null) {
+            setItem(prevState => {
+                return {
+                    ...prevState,
+                    [name]: value
+                }
+            });
+        }
     };
 
     const handleSubmit = (event) => {
