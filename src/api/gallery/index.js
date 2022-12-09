@@ -23,7 +23,7 @@ const createThumbnail = (item) => {
 const updateThumbnail = (item) => {
     const { id, ...body } = item;
     const option = {
-        method: 'PUT',
+        method: 'PATCH',
         headers: {
             'Content-type': 'application/json; charset=UTF-8',
         },

@@ -6,11 +6,7 @@ import UpdatingThumbnail from './fetch/updating';
 import "./style.css";
 
 function App() {
-  return (
-    <>
-      <UpdatingThumbnail />
-    </>
-  )
+  return <UpdatingThumbnail />
 }
 
 export default App;
