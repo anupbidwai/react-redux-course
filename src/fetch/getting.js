@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { galleryAPI } from "../api/gallery";
-import Photo from '../components/Photo';
+import Thumbnail from '../components/Thumbnail';
 
 const GettingThumbnail = () => {
     const inputRef = useRef();
@@ -31,7 +31,7 @@ const GettingThumbnail = () => {
                 <input type="text" placeholder="Type id" ref={inputRef} />
                 <button type="submit">fetch thumbnail</button>
             </form>
-            {result && <Photo photo={result} />}
+            {result && <Thumbnail data={result} />}
         </div>
     )
 };

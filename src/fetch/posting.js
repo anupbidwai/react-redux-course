@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { galleryAPI, GALLERY_URL } from "../api/gallery";
-import Photo from "../components/Photo";
+import Thumbnail from "../components/Thumbnail";
 
 const PostingThumbnail = () => {
     const thumbnailUrlRef = useRef();
@@ -61,7 +61,7 @@ const PostingThumbnail = () => {
                 ) : "Loading..."
             }
             {
-                photo && <Photo photo={photo} />
+                photo && <Thumbnail data={photo} />
             }
         </div>
     )

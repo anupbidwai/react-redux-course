@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { GALLERY_URL } from "../api/gallery";
-import Photo from "../components/Photo";
+import Thumbnail from "../components/Thumbnail";
 
 const galleryStyle = {
     display: 'grid',
@@ -12,10 +12,10 @@ const galleryStyle = {
 const Gallery = (props) => {
     const [gallery, setGallery] = useState();
 
-    const printPhoto = () => gallery.map(item => {
-        return item.albumId === 1
-            && <Photo photo={item} key={item.id} />
-    });
+    const printPhoto = gallery?.map(item => item.albumId === 1
+        ? <Thumbnail data={item} key={item.id} />
+        : null
+    );
 
     useEffect(() => {
         setGallery(props.data);
@@ -23,7 +23,7 @@ const Gallery = (props) => {
 
     return (
         gallery?.length > 0
-            ? <div style={galleryStyle}>{printPhoto()}</div>
+            ? <div style={galleryStyle}>{printPhoto}</div>
             : "Loading ..."
     )
 };
