@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { galleryAPI, GALLERY_URL } from "../api/gallery";
 import Photo from "../components/Photo";
 
-const Create = () => {
+const CreatingThumbnail = () => {
     const thumbnailUrlRef = useRef();
     const titleRef = useRef();
     const alubmnIdRef = useRef();
@@ -20,7 +20,7 @@ const Create = () => {
         setAlbums([...alumbsSet])
     };
 
-    const alumbmIds = alumbs
+    const alumbmIdOptions = alumbs
         && alumbs.map(id => <option value={id} key={id}>{id}</option>);
 
     const handleSubmit = (event) => {
@@ -43,26 +43,27 @@ const Create = () => {
     }, []);
 
     return (
-        <>
+        <div style={{ textAlign: 'center' }}>
             {
                 alumbs ? (
                     <>
-                        <h1 style={{ textAlign: 'center' }}>Create Thumbnail</h1>
-                        <form onSubmit={handleSubmit} style={{ textAlign: 'center' }}>
+                        <h1>Create Thumbnail</h1>
+                        <form onSubmit={handleSubmit}>
                             <select ref={alubmnIdRef}>
                                 <option>Select album</option>
-                                {alumbmIds}
+                                {alumbmIdOptions}
                             </select>
                             <input type="text" placeholder="Thumbnail URL" ref={thumbnailUrlRef} />
                             <input type="text" placeholder="Title" ref={titleRef} />
                             <button type="sbumit">create</button>
-                        </form></>
+                        </form>
+                    </>
                 ) : "Loading..."
             }
             {
                 photo && <Photo photo={photo} />
             }
-        </>
+        </div>
     )
 };
-export default Create;
+export default CreatingThumbnail;

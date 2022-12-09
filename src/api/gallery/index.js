@@ -20,8 +20,23 @@ const createThumbnail = (item) => {
     })
 };
 
+const updateThumbnail = (item) => {
+    const { id, ...body } = item;
+    const option = {
+        method: 'PUT',
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+        },
+        body: JSON.stringify({
+            ...body
+        })
+    }
+    return fetch(`${GALLERY_URL}/${id}`, option);
+}
+
 export const galleryAPI = {
     fetchAll: fetchAll,
     fetchById: fetchById,
-    createThumbnail: createThumbnail
+    createThumbnail: createThumbnail,
+    updateThumbnail: updateThumbnail
 };

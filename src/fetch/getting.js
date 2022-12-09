@@ -25,14 +25,14 @@ const GettingThumbnail = () => {
     };
 
     return (
-        <>
-            <h1 style={{ textAlign: 'center' }}>Fetching Thumbnail</h1>
-            <form onSubmit={handleSubmit} style={{ textAlign: 'center' }}>
+        <div style={{ textAlign: 'center' }}>
+            <h1>Fetching Thumbnail</h1>
+            <form onSubmit={handleSubmit}>
                 <input type="text" placeholder="Type id" ref={inputRef} />
                 <button type="submit">fetch thumbnail</button>
             </form>
             {result && <Photo photo={result} />}
-        </>
+        </div>
     )
 };
 export default GettingThumbnail;

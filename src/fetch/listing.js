@@ -28,7 +28,7 @@ const Gallery = (props) => {
     )
 };
 
-const ListingGallery = () => {
+const ListingThumbnails = () => {
 
     const [gallery, setGallery] = useState([]);
 
@@ -59,10 +59,10 @@ const ListingGallery = () => {
     }, []);
 
     return (
-        <>
-            <h1 style={{ textAlign: 'center' }}>Listing Thumbnails</h1>
+        <div style={{ textAlign: 'center' }}>
+            <h1>Listing Thumbnails</h1>
             <Gallery data={gallery} />
-        </>
+        </div>
     )
 };
-export default ListingGallery;
+export default ListingThumbnails;
