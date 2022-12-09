@@ -8,7 +8,7 @@ const fetchById = (id) => {
     return fetch(`${GALLERY_URL}/${id}`);
 };
 
-const createThumbnail = (item) => {
+const postingThumbnail = (item) => {
     return fetch(`${GALLERY_URL}`, {
         method: 'POST',
         headers: {
@@ -20,7 +20,7 @@ const createThumbnail = (item) => {
     })
 };
 
-const updateThumbnail = (item) => {
+const patchingThumbnail = (item) => {
     const { id, ...body } = item;
     const option = {
         method: 'PATCH',
@@ -37,6 +37,6 @@ const updateThumbnail = (item) => {
 export const galleryAPI = {
     fetchAll: fetchAll,
     fetchById: fetchById,
-    createThumbnail: createThumbnail,
-    updateThumbnail: updateThumbnail
+    postingThumbnail: postingThumbnail,
+    patchingThumbnail: patchingThumbnail
 };

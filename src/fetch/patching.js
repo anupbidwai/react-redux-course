@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react';
 import { galleryAPI } from '../api/gallery';
 
-const UpdatingThumbnail = () => {
+const PatchingThumbnail = () => {
     const idRef = useRef();
     const titleRef = useRef();
     const [item, setItem] = useState({
@@ -24,7 +24,7 @@ const UpdatingThumbnail = () => {
     const handleSubmit = (event) => {
         event.preventDefault();
         if (item) {
-            galleryAPI.updateThumbnail(item)
+            galleryAPI.patchingThumbnail(item)
                 .then(res => res.json())
                 .then(data => console.log(data));
         }
@@ -41,4 +41,4 @@ const UpdatingThumbnail = () => {
         </div>
     )
 };
-export default UpdatingThumbnail;
+export default PatchingThumbnail;

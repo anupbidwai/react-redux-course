@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { galleryAPI, GALLERY_URL } from "../api/gallery";
 import Photo from "../components/Photo";
 
-const CreatingThumbnail = () => {
+const PostingThumbnail = () => {
     const thumbnailUrlRef = useRef();
     const titleRef = useRef();
     const alubmnIdRef = useRef();
@@ -33,7 +33,7 @@ const CreatingThumbnail = () => {
             url: "https://via.placeholder.com/600/810b14"
         }
 
-        galleryAPI.createThumbnail(item)
+        galleryAPI.postingThumbnail(item)
             .then(res => res.json())
             .then(data => setPhoto(data))
     }
@@ -66,4 +66,4 @@ const CreatingThumbnail = () => {
         </div>
     )
 };
-export default CreatingThumbnail;
+export default PostingThumbnail;

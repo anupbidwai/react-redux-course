@@ -1,12 +1,12 @@
-// import CreatingThumbnail from './fetch/creating';
+import PostingThumbnail from './fetch/posting';
 // import GettingThumbnail from './fetch/getting';
 // import ListingThumbnails from './fetch/listing';
-import UpdatingThumbnail from './fetch/updating';
+import PatchingThumbnail from './fetch/patching';
 
 import "./style.css";
 
 function App() {
-  return <UpdatingThumbnail />
+  return <PostingThumbnail />
 }
 
 export default App;
