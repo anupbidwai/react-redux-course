@@ -11,10 +11,10 @@ const GettingThumbnail = () => {
         try {
             const thumnbnaiId = inputRef.current.value;
             if (!thumnbnaiId) throw new Error("Please provide id");
+
             let res = await galleryAPI.fetchById(thumnbnaiId);
             if (res.ok) {
                 let data = await res.json()
-                console.log(data)
                 setResult(data);
             } else {
                 throw new Error("Something went wromg !!!");

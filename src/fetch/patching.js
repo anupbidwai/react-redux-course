@@ -5,7 +5,7 @@ const PatchingThumbnail = () => {
     const idRef = useRef();
     const titleRef = useRef();
     const [item, setItem] = useState({
-        id: '',
+        id: '1',
         title: ''
     });
 

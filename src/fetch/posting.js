@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { galleryAPI, GALLERY_URL } from "../api/gallery";
+import { galleryAPI } from "../api/gallery";
 import Thumbnail from "../components/Thumbnail";
 
 const PostingThumbnail = () => {
@@ -9,16 +9,6 @@ const PostingThumbnail = () => {
 
     const [photo, setPhoto] = useState();
     const [alumbs, setAlbums] = useState();
-
-    const loadAlbumsIds = async () => {
-        const res = await fetch(GALLERY_URL);
-        const alumbs = await res.json();
-
-        // get unique album ids
-        const alumbsSet = new Set();
-        alumbs.forEach(alubm => alumbsSet.add(alubm.albumId));
-        setAlbums([...alumbsSet])
-    };
 
     const alumbmIdOptions = alumbs
         && alumbs.map(id => <option value={id} key={id}>{id}</option>);
@@ -39,7 +29,9 @@ const PostingThumbnail = () => {
     }
 
     useEffect(() => {
-        loadAlbumsIds();
+        // get all albums ids
+        galleryAPI.getAllAlbumsId()
+            .then(data => setAlbums(data))
     }, []);
 
     return (

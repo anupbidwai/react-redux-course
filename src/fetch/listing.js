@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { GALLERY_URL } from "../api/gallery";
+import { galleryAPI } from "../api/gallery";
 import Thumbnail from "../components/Thumbnail";
 
 const galleryStyle = {
@@ -49,10 +49,7 @@ const ListingThumbnails = () => {
     };
 
     useEffect(() => {
-        const options = {
-            method: 'GET'
-        }
-        fetch(GALLERY_URL, options)
+        galleryAPI.fetchAll()
             .then(status)
             .then(data)
             .catch(err => console.log(err))
