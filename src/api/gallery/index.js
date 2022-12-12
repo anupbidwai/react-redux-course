@@ -28,7 +28,7 @@ const filterByAlbumId = (albumId) => {
 
 // posting new thumbnail
 const postingThumbnail = (item) => {
-    return fetch(`${GALLERY_URL}`, {
+    const option = {
         method: 'POST',
         headers: {
             'Content-type': 'application/json; charset=UTF-8',
@@ -36,7 +36,8 @@ const postingThumbnail = (item) => {
         body: JSON.stringify({
             ...item
         })
-    })
+    };
+    return fetch(`${GALLERY_URL}`, option)
 };
 
 // patching existing thumbnail

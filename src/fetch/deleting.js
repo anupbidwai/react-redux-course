@@ -44,7 +44,7 @@ const DeletingThumbnail = () => {
     }, []);
 
     // all albums
-    const albumsOption = albumIds?.map((aid) => <option value={aid} key={aid} defaultValue={aid}>{aid}</option>);
+    const albumsOption = albumIds?.map((aid) => <option value={aid} key={aid}>{aid}</option>);
 
     return (
         <div style={{ textAlign: 'center' }}>

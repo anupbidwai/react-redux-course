@@ -9,6 +9,7 @@ const galleryStyle = {
     padding: 24
 };
 
+// child component
 const Gallery = (props) => {
     const [gallery, setGallery] = useState();
 
@@ -28,10 +29,12 @@ const Gallery = (props) => {
     )
 };
 
+// parent component
 const ListingThumbnails = () => {
 
     const [gallery, setGallery] = useState([]);
 
+    // check api status and retun data
     const status = (response) => {
         try {
             if (response.ok) {
@@ -48,6 +51,7 @@ const ListingThumbnails = () => {
         setGallery(result);
     };
 
+    // fetching all album items
     useEffect(() => {
         galleryAPI.fetchAll()
             .then(status)

@@ -7,7 +7,13 @@ import DeletingThumbnail from "./fetch/deleting";
 import "./style.css";
 
 function App() {
-  return <DeletingThumbnail />
+  return <>
+    {/* <ListingThumbnails /> */}
+    {/* <GettingThumbnail /> */}
+    {/* <PostingThumbnail /> */}
+    {/* <PatchingThumbnail /> */}
+    <DeletingThumbnail />
+  </>
 }
 
 export default App;

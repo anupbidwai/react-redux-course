@@ -16,6 +16,7 @@ const PostingThumbnail = () => {
     const handleSubmit = (event) => {
         event.preventDefault();
 
+        // new item for album
         const item = {
             albumId: alubmnIdRef.current.value,
             thumbnailUrl: thumbnailUrlRef.current.value,
