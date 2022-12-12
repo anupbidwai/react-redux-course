@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { postsAPI } from '../../api/post/postsAPI';
+import { postsAPI } from '../../api/post';
 
 const initialState = {
     loading: false,
@@ -11,9 +11,7 @@ const initialState = {
 export const fetchPosts = createAsyncThunk("posts/fetchPosts", async (postId) => {
     let response;
     response = await postsAPI.fetchById(postId);
-    if (response.status >= 200 && response.status < 300) {
-        return await response.json();
-    }
+    return await response.data;
 })
 
 const postSlice = createSlice({
