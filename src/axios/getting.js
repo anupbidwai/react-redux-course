@@ -1,8 +1,8 @@
 import { useRef, useState } from "react";
 import { galleryAPI } from "../api/gallery";
-import Thumbnail from '../components/Thumbnail';
+import Photo from '../components/Photo';
 
-const GettingThumbnail = () => {
+const GetPhoto = () => {
     const inputRef = useRef();
     const [result, setResult] = useState();
 
@@ -12,23 +12,23 @@ const GettingThumbnail = () => {
             const thumnbnaiId = inputRef.current.value;
             if (!thumnbnaiId) throw new Error("Please provide id");
 
-            galleryAPI.fetchById(thumnbnaiId)
+            galleryAPI.getById(thumnbnaiId)
                 .then(res => setResult(res.data));
 
         } catch (e) {
-            console.log("Error at GettingThumbnail =>", e)
+            console.log("Error at GetPhoto =>", e)
         }
     };
 
     return (
         <div style={{ textAlign: 'center' }}>
-            <h1>Fetching Thumbnail</h1>
+            <h1>Get Photo</h1>
             <form onSubmit={handleSubmit}>
                 <input type="text" placeholder="Type id" ref={inputRef} />
-                <button type="submit">fetch thumbnail</button>
+                <button type="submit">Get photo</button>
             </form>
-            {result && <Thumbnail data={result} />}
+            {result && <Photo data={result} />}
         </div>
     )
 };
-export default GettingThumbnail;
+export default GetPhoto;

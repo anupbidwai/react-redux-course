@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from 'react';
 import { galleryAPI } from '../api/gallery';
 
-const DeletingThumbnail = () => {
+const DeletingPhoto = () => {
     const [albumIds, setAlbumIds] = useState();
     const [albums, setAlbums] = useState();
     const albumRef = useRef();
@@ -12,13 +12,13 @@ const DeletingThumbnail = () => {
             if (albumRef.current.value === 'Select album ID') setAlbums([]);
 
             const options = [];
-            const res = await galleryAPI.filterByAlbumId(albumRef.current.value);
+            const res = await galleryAPI.getByAlbumId(albumRef.current.value);
             res.data?.map((album) => options.push(<option value={album.id} key={album.id}>{album.id}</option>));
 
             setAlbums([...options]);
 
         } catch (e) {
-            console.log("DeletingThumbnail > handleAlbumChange => ", e)
+            console.log("DeletingPhoto > handleAlbumChange => ", e)
         }
     };
 
@@ -27,21 +27,21 @@ const DeletingThumbnail = () => {
         try {
             if (albumRef.current.value === 'Select album ID') throw new Error("Please select Album ID");
 
-            const res = await galleryAPI.deletingThumnbnail({ album: albumRef.current.value, id: albumIdRef.current.value })
+            const res = await galleryAPI.deletingPhoto({ album: albumRef.current.value, id: albumIdRef.current.value })
             console.log(res.data);
 
         } catch (e) {
-            console.error("DeletingThumbnail > handleSubmit => ", e);
+            console.error("DeletingPhoto > handleSubmit => ", e);
         }
     };
 
     useEffect(() => {
         // get all albums ID's
         try {
-            galleryAPI.fetchAllAlbumsId()
+            galleryAPI.getAllAlbumsId()
                 .then(ids => setAlbumIds(ids));
         } catch (e) {
-            console.log("DeletingThumbnail > useEffect => ", e);
+            console.log("DeletingPhoto > useEffect => ", e);
         }
     }, []);
 
@@ -65,4 +65,4 @@ const DeletingThumbnail = () => {
         </div>
     )
 };
-export default DeletingThumbnail;
+export default DeletingPhoto;

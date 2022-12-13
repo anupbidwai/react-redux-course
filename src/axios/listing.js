@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { galleryAPI } from "../api/gallery";
-import Thumbnail from "../components/Thumbnail";
+import Photo from "../components/Photo";
 
 const galleryStyle = {
     display: 'grid',
@@ -13,8 +13,8 @@ const galleryStyle = {
 const Gallery = (props) => {
     const [gallery, setGallery] = useState();
 
-    const printPhoto = gallery?.map(item => item.albumId === 1
-        ? <Thumbnail data={item} key={item.id} />
+    const LoadPhotos = gallery?.map(item => item.albumId === 1
+        ? <Photo data={item} key={item.id} />
         : null
     );
 
@@ -24,20 +24,20 @@ const Gallery = (props) => {
 
     return (
         gallery?.length > 0
-            ? <div style={galleryStyle}>{printPhoto}</div>
+            ? <div style={galleryStyle}>{LoadPhotos}</div>
             : 'Loading ...'
     )
 };
 
 // parent component
-const ListingThumbnails = () => {
+const ListingPhotos = () => {
     const [gallery, setGallery] = useState([]);
 
     // fetching all album items
     useEffect(() => {
-        galleryAPI.fetchAll()
+        galleryAPI.getAllPhotos()
             .then(res => setGallery(res.data))
-            .catch(err => console.error("Error at ListingThumbnails => ", err))
+            .catch(err => console.error("Error at ListingPhotos => ", err))
     }, []);
 
     return (
@@ -47,4 +47,4 @@ const ListingThumbnails = () => {
         </div>
     )
 };
-export default ListingThumbnails;
+export default ListingPhotos;

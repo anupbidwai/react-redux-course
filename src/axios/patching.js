@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react';
 import { galleryAPI } from '../api/gallery';
 
-const PatchingThumbnail = () => {
+const PatchingPhoto = () => {
     const idRef = useRef();
     const titleRef = useRef();
     const [item, setItem] = useState({
@@ -24,14 +24,14 @@ const PatchingThumbnail = () => {
     const handleSubmit = (event) => {
         event.preventDefault();
         if (item) {
-            galleryAPI.patchingThumbnail(item)
+            galleryAPI.patchingPhoto(item)
                 .then(res => console.log(res.data));
         }
     };
 
     return (
         <div style={{ textAlign: 'center' }}>
-            <h1>Updating Thumbnail</h1>
+            <h1>Patching / update Photo</h1>
             <form onSubmit={handleSubmit}>
                 <input type="text" placeholder="Type id" ref={idRef} onChange={handleChange} name="id" />
                 <input type="text" placeholder="Type title" ref={titleRef} onChange={handleChange} name="title" />
@@ -40,4 +40,4 @@ const PatchingThumbnail = () => {
         </div>
     )
 };
-export default PatchingThumbnail;
+export default PatchingPhoto;

@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { galleryAPI } from "../api/gallery";
-import Thumbnail from "../components/Thumbnail";
+import Thumbnail from "../components/Photo";
 
-const PostingThumbnail = () => {
+const PostingPhoto = () => {
     const thumbnailUrlRef = useRef();
     const titleRef = useRef();
     const alubmnIdRef = useRef();
@@ -25,20 +25,20 @@ const PostingThumbnail = () => {
         }
 
         try {
-            galleryAPI.postingThumbnail(item)
+            galleryAPI.postingPhoto(item)
                 .then(res => setPhoto(res.data))
         } catch (e) {
-            console.log("PostingThumbnail > handleSubmit => ", e)
+            console.log("PostingPhoto > handleSubmit => ", e)
         }
     }
 
     useEffect(() => {
         // get all albums ids
         try {
-            galleryAPI.fetchAllAlbumsId()
+            galleryAPI.getAllAlbumsId()
                 .then(ids => setAlbums(ids));
         } catch (e) {
-            console.log("PostingThumbnail > useEffect =>", e)
+            console.log("PostingPhoto > useEffect =>", e)
         }
     }, []);
 
@@ -47,7 +47,7 @@ const PostingThumbnail = () => {
             {
                 alumbs ? (
                     <>
-                        <h1>Create Thumbnail</h1>
+                        <h1>Create Photo</h1>
                         <form onSubmit={handleSubmit}>
                             <select ref={alubmnIdRef}>
                                 <option>Select album</option>
@@ -66,4 +66,4 @@ const PostingThumbnail = () => {
         </div>
     )
 };
-export default PostingThumbnail;
+export default PostingPhoto;
