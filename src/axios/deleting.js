@@ -11,10 +11,10 @@ const DeletingThumbnail = () => {
         try {
             if (albumRef.current.value === 'Select album ID') setAlbums([]);
 
-            const res = await galleryAPI.filterByAlbumId(albumRef.current.value);
-
             const options = [];
+            const res = await galleryAPI.filterByAlbumId(albumRef.current.value);
             res.data?.map((album) => options.push(<option value={album.id} key={album.id}>{album.id}</option>));
+
             setAlbums([...options]);
 
         } catch (e) {

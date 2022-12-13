@@ -5,7 +5,7 @@ import PatchingThumbnail from './axios/patching';
 import DeletingThumbnail from "./axios/deleting";
 
 import "./style.css";
-import ReduxApp from './components/ReduxApp';
+import Todo from './components/Todo/withStore';
 
 function App() {
   return <>
@@ -14,7 +14,7 @@ function App() {
     <PostingThumbnail />
     <PatchingThumbnail />
     <DeletingThumbnail /> */}
-    <ReduxApp />
+    <Todo />
   </>
 }
 
