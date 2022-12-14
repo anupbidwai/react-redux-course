@@ -1,29 +1,29 @@
 import axios from "axios";
 
 // API URL
-export const GALLERY_URL = "https://jsonplaceholder.typicode.com/photos";
+export const apiURL = "https://jsonplaceholder.typicode.com/photos";
 
 // get all data
 const getAllPhotos = () => {
-    return axios.get(GALLERY_URL);
+    return axios.get(apiURL);
 };
 
 // get specific data
 const getById = (id) => {
-    return axios.get(`${GALLERY_URL}/${id}`);
+    return axios.get(`${apiURL}/${id}`);
 };
 
 // get all albums ID's
 const getAllAlbumsId = async () => {
     const set = new Set();
-    const res = await axios(GALLERY_URL);
+    const res = await axios(apiURL);
     res.data.forEach(item => set.add(item.albumId));
     return [...set];
 };
 
 // get data by album ID
 const getByAlbumId = (albumId) => {
-    return axios.get(GALLERY_URL, {
+    return axios.get(apiURL, {
         params: {
             albumId: albumId
         }
@@ -32,7 +32,7 @@ const getByAlbumId = (albumId) => {
 
 // posting new thumbnail
 const postingPhoto = (item) => {
-    return axios.post(GALLERY_URL, {
+    return axios.post(apiURL, {
         ...item
     });
 };
@@ -40,7 +40,7 @@ const postingPhoto = (item) => {
 // patching existing thumbnail
 const patchingPhoto = (item) => {
     const { id, ...body } = item;
-    return axios.patch(`${GALLERY_URL}/${id}`, {
+    return axios.patch(`${apiURL}/${id}`, {
         ...body
     });
 };
@@ -48,7 +48,7 @@ const patchingPhoto = (item) => {
 // delete existing thumbnail
 const deletingPhoto = (item) => {
     const { album, id } = item;
-    return axios.delete(GALLERY_URL, {
+    return axios.delete(apiURL, {
         params: {
             albumId: album,
             id: id
