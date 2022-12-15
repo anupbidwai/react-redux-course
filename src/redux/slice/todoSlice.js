@@ -19,8 +19,8 @@ const updateTodo = (state, action) => {
 const deleteTodo = (state, action) => {
     //state.list = state.list.filter(item => item.id !== action.payload);
     const todoId = action.payload;
-    const index = state.list.findIndex(item => item.id === todoId);
-    state.list.splice(index, 1);
+    const todoIndex = state.list.findIndex(item => item.id === todoId);
+    state.list.splice(todoIndex, 1);
 };
 
 const todoSlice = createSlice({

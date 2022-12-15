@@ -2,7 +2,7 @@ import axios from "axios";
 
 const POSTS_URL = "https://jsonplaceholder.typicode.com/posts";
 
-const fetchById = (id) => {
+const getById = (id) => {
     return axios(POSTS_URL, {
         params: {
             id: id
@@ -11,5 +11,5 @@ const fetchById = (id) => {
 };
 
 export const postsAPI = {
-    fetchById: fetchById
+    getById: getById
 };

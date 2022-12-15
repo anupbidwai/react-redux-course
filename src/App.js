@@ -4,8 +4,9 @@ import PostingPhoto from './axios/posting';
 import PatchingThumbnail from './axios/patching';
 import DeletingPhoto from "./axios/deleting";
 
-import "./style.css";
 import Todo from './components/Todo/withStore';
+import ReduxApp from './components/ReduxApp';
+import "./style.css";
 
 function App() {
   return <>
@@ -13,8 +14,9 @@ function App() {
     {/* <GetPhoto /> */}
     {/* <PostingPhoto /> */}
     {/* <PatchingThumbnail /> */}
-    <DeletingPhoto />
+    {/* <DeletingPhoto /> */}
     {/* <Todo /> */}
+    <ReduxApp />
   </>
 }
 

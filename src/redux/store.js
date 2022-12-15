@@ -28,13 +28,6 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-const rootReducer = combineReducers({
-    arithmatic: arithmaticReducer,
-    posts: postsReducer,
-    todo: todoSlice
-});
-
-
 const persistConfig = {
     key: 'root',
     version: 1,
@@ -48,6 +41,12 @@ const persistConfig = {
 
     // if no blacklisted and whitelisted then all the reducers(rootReducer) are persited by default
 };
+
+const rootReducer = combineReducers({
+    arithmatic: arithmaticReducer,
+    posts: postsReducer,
+    todo: todoSlice
+});
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 

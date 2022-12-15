@@ -43,7 +43,7 @@ const ReduxApp = () => {
                         placeholder="type post id"
                         ref={inputRef}
                     />
-                    <button type="submit" onClick={handleFetchPost}>fetch post</button>
+                    <button type="submit" onClick={handleFetchPost}>get post</button>
                 </form>
                 {
                     postsState.loading === true && <Status loading={postsState.loading} />
