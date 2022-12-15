@@ -19,7 +19,7 @@ export const fetchPosts = createAsyncThunk("posts/fetchPosts", async (postId) =>
 // and automatically generates a slice reducer with corresponding action creators and action types.
 const postSlice = createSlice({
     name: 'posts',
-    initialState: { ...initialState },
+    initialState: initialState,
     reducers: {
         greetMe: (state, action) => {
             console.log(action, state)
