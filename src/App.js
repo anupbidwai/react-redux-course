@@ -12,11 +12,11 @@ function App() {
   return <>
     {/* <ListingPhotos /> */}
     {/* <GetPhoto /> */}
-    {/* <PostingPhoto /> */}
+    <PostingPhoto />
     {/* <PatchingThumbnail /> */}
     {/* <DeletingPhoto /> */}
     {/* <Todo /> */}
-    <ReduxApp />
+    {/* <ReduxApp /> */}
   </>
 }
 

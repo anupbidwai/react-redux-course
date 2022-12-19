@@ -16,7 +16,7 @@ const GetPhoto = () => {
                 .then(res => setResult(res.data));
 
         } catch (e) {
-            console.log("Error at GetPhoto =>", e)
+            console.error("Error at GetPhoto =>", e)
         }
     };
 

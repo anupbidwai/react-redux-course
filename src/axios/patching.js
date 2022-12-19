@@ -23,9 +23,13 @@ const PatchingPhoto = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        if (item) {
-            galleryAPI.patchingPhoto(item)
-                .then(res => console.log(res.data));
+        try {
+            if (item) {
+                galleryAPI.patchingPhoto(item)
+                    .then(res => console.log(res.data));
+            }
+        } catch (e) {
+            console.log(e)
         }
     };
 

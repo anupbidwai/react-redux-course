@@ -1,5 +1,6 @@
 import axios from "axios";
 
+
 // API URL
 export const apiURL = "https://jsonplaceholder.typicode.com/photos";
 
@@ -34,6 +35,9 @@ const getByAlbumId = (albumId) => {
 const postingPhoto = (item) => {
     return axios.post(apiURL, {
         ...item
+    }).then(res => {
+        console.log(res.data)
+        return res;
     });
 };
 
