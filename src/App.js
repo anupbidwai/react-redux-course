@@ -12,9 +12,9 @@ function App() {
   return <>
     {/* <ListingPhotos /> */}
     {/* <GetPhoto /> */}
-    <PostingPhoto />
+    {/* <PostingPhoto /> */}
     {/* <PatchingThumbnail /> */}
-    {/* <DeletingPhoto /> */}
+    <DeletingPhoto />
     {/* <Todo /> */}
     {/* <ReduxApp /> */}
   </>

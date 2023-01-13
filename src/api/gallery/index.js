@@ -1,12 +1,15 @@
 import axios from "axios";
 
-
 // API URL
 export const apiURL = "https://jsonplaceholder.typicode.com/photos";
 
+const axiosInstance = axios.create({
+    baseURL: apiURL
+});
+
 // get all data
 const getAllPhotos = () => {
-    return axios.get(apiURL);
+    return axiosInstance.get();
 };
 
 // get specific data
