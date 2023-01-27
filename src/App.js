@@ -11,10 +11,10 @@ import "./style.css";
 function App() {
   return <>
     {/* <ListingPhotos /> */}
-    {/* <GetPhoto /> */}
+    <GetPhoto />
     {/* <PostingPhoto /> */}
     {/* <PatchingThumbnail /> */}
-    <DeletingPhoto />
+    {/* <DeletingPhoto /> */}
     {/* <Todo /> */}
     {/* <ReduxApp /> */}
   </>

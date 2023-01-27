@@ -22,7 +22,7 @@ const GetPhoto = () => {
 
     return (
         <div style={{ textAlign: 'center' }}>
-            <h1>Get Photo</h1>
+            <h1>Get Photo 1</h1>
             <form onSubmit={handleSubmit}>
                 <input type="text" placeholder="Type id" ref={inputRef} />
                 <button type="submit">Get photo</button>
