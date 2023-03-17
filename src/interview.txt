@@ -1,0 +1,21 @@
+# fire this query in google search engine: google react js interview question
+# https://www.simplilearn.com/tutorials/reactjs-tutorial/reactjs-interview-questions
+
+What are the features of React?
+Ans: Easy creation of dynamic applications: React makes it easier to create dynamic 
+web applications because it requires less coding and offers more functionality, as opposed to JavaScript, 
+where coding often gets complex very quickly. Improved performance: React uses Virtual DOM, thereby creating web applications faster.
+
+What is JSX?
+Ans: JSX is a syntax extension for JavaScript that lets you write HTML markup inside a JavaScript file.
+
+Can web browsers read JSX directly?
+Ans: No, JSX files cannot be read directly by browsers, a JSX file needs to be converted using JSX transformers into a 
+JavaScript object before it can be loaded into the browser and used in the pipeline.
+
+What is VDOM?
+Ans: VDOM: https://reactjs.org/docs/faq-internals.html#what-is-the-virtual-dom
+
+Why use React instead of other frameworks, like Angular?
+Ans: Because of its virtual DOM implementation and rendering optimizations, React outperforms Angular. 
+It's also simple to switch between React versions; unlike Angular, you don't have to install updates one by one.
