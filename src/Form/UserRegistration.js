@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ThemeTextField2 } from "../components/Elements";
 import validation from "../utils/validation";
 
+
 const UserRegistration = (props) => {
     const [errors, setErrors] = useState();
     const [form, setForm] = useState({
