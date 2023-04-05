@@ -8,12 +8,12 @@ const initialState = {
     greetingMsg: null
 };
 
-// genrate thunk that dispatch `pending/fulfilled/rejected` action types
+// generate thunk that dispatch `pending/fulfilled/rejected` action types
 export const fetchPosts = createAsyncThunk("posts/fetchPosts", async (postId) => {
     let response;
     response = await postsAPI.getById(postId);
     return await response.data;
-})
+});
 
 // accepts an object of reducer functions, a slice name, and an initial state value,
 // and automatically generates a slice reducer with corresponding action creators and action types.
@@ -42,15 +42,15 @@ const postSlice = createSlice({
     // another way
     /*
     extraReducers: {
-        [fetchUsers.pending]: (state) => {
+        [fetchPosts.pending]: (state) => {
             state.loading = true;
             state.error = null
         },
-        [fetchUsers.fulfilled]: (state, action) => {
+        [fetchPosts.fulfilled]: (state, action) => {
             state.loading = false;
             state.users = action.payload
         },
-        [fetchUsers.rejected]: (state, action) => {
+        [fetchPosts.rejected]: (state, action) => {
             state.error = action.error;
             state.loading = false
         }
