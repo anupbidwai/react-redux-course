@@ -1,7 +1,12 @@
-const IronManSuitHOC = (Component) => {
-    const obj = {
-        'version': 'mark85'
+const ironManHOC = (Component) => {
+    const IronManSuit = (props) => {
+        const obj = {
+            'version': 'mark85'
+        }
+        return (
+            <Component {...props} version={obj.version} />
+        )
     }
-    return (props) => <Component suit={obj} {...props} />
+    return IronManSuit;
 };
-export default IronManSuitHOC;
+export default ironManHOC;

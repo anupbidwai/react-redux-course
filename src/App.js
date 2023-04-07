@@ -10,7 +10,7 @@ import ReduxApp from './components/ReduxApp';
 import "./style.css";
 import UserRegistration from './form/UserRegistration';
 import Practice from './components/Practice';
-import TonyStark from './hoc/TonyStark';
+import IronMan from './hoc/IronMan';
 import HookUseMemo from './hooks/HookUseMemo';
 
 function App() {
@@ -24,8 +24,8 @@ function App() {
     {/* <ReduxApp /> */}
     {/* <UserRegistration /> */}
     {/* <Practice /> */}
-    {/* <TonyStark name="tony" /> */}
-    <HookUseMemo />
+    <IronMan name="tony" />
+    {/* <HookUseMemo /> */}
   </>
 }
 
