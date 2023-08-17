@@ -21,8 +21,8 @@ function App() {
       {/* <PostingPhoto /> */}
       {/* <PatchingThumbnail /> */}
       {/* <DeletingPhoto /> */}
-      <Todo />
-      {/* <ReduxApp /> */}
+      {/* <Todo /> */}
+      <ReduxApp />
       {/* <UserRegistration /> */}
       {/* <Practice /> */}
       {/* <IronMan name="tony" /> */}
